@@ -11,10 +11,10 @@
 :historyproxy a doap:Project ;
   doap:name "historyproxy" ;
   owconfig:privateNamespace <https://github.com/AKSW/history/raw/master/doap.n3#> ;
-  owconfig:enabled "true"^^xsd:boolean ;
+  owconfig:enabled "false"^^xsd:boolean ;
   owconfig:templates "templates" ;
   owconfig:languages "languages/" ;
-  owconfig:defaultAction "view" ;
+  #owconfig:defaultAction "view" ;
   owconfig:pluginEvent event:onQueryHistory ;
   rdfs:label "Historyproxy" ;
   doap:description "description goes here" ;
