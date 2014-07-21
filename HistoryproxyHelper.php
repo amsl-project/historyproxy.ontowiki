@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the {@link http://ontowiki.net OntoWiki} project.
  *
@@ -16,17 +17,24 @@
  */
 class HistoryproxyHelper extends OntoWiki_Component_Helper
 {
-    public function init()
-    {
-        OntoWiki::getInstance()->getNavigation()->register(
-            'historyproxy',
-            array(
-                'controller' => 'historyproxy',     // history controller
-                'action'     => 'view',        // list action
-                'name'       => 'Historyproxy',
-                'priority'   => 30
-            )
-        );
+    
+    /**
+     * The module view
+     *
+     * @var Zend_View_Interface
+     */
+    public $view = null;
+    public function init() {
+        
+        // init view
+        if (null === $this->view) {
+            $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
+            if (null === $viewRenderer->view) {
+                $viewRenderer->initView();
+            }
+            $this->view = clone $viewRenderer->view;
+            $this->view->clearVars();
+        }
     }
 }
 

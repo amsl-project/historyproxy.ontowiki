@@ -19,6 +19,10 @@ class HistoryproxyController extends OntoWiki_Controller_Component
 {
     public function viewAction() {
 
+        $this->view->placeholder('main.window.title')->set('Historyproxy');
+        $this->addModuleContext('main.window.historyproxy.search');
+        OntoWiki::getInstance()->getNavigation()->disableNavigation();
+
         $model = $this->_owApp->selectedModel;
         $event              = new Erfurt_Event( 'onQueryHistory' );
         // $model->getModelIri()
